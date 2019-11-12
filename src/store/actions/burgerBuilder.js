@@ -13,10 +13,10 @@ export const removeIngredient = (name) => {
         ingredientName: name
     }
 };
-export const fetchIngredientsFailed =() =>{
-  return {
-      type : actionTypes.FETCH_INGREDIENTS_FAILED,
-  }
+export const fetchIngredientsFailed = () => {
+    return {
+        type: actionTypes.FETCH_INGREDIENTS_FAILED,
+    }
 };
 export const setIngredients = (ingredients) => {
     return {
@@ -25,14 +25,8 @@ export const setIngredients = (ingredients) => {
     }
 };
 export const initIngredients = () => {
-    return dispatch => {
-        axios.get('https://burger-fa46e.firebaseio.com/ingredients.json')
-            .then(response => {
-                dispatch(setIngredients(response.data))
-            })
-            .catch(error => {
-                dispatch(fetchIngredientsFailed())
-            });
+    return {
+        type: actionTypes.INIT_INGREDIENTS
     }
 };
 
